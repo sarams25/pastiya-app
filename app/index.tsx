@@ -8,7 +8,7 @@ export default function Index() {
     <View style={styles.container}>
       <View style={styles.header}>
         <Image
-          source={require("../assets/images/logo.jpeg")}
+          source={require("../assets/images/logo.png")}
           style={styles.logo}
           resizeMode="contain"
         />
@@ -16,15 +16,19 @@ export default function Index() {
 
       <View style={styles.menu}>
         <TouchableOpacity style={styles.boton} onPress={() => router.push("/programacion")}>
-          <Text style={styles.botonTexto}>📅  Programación</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.boton}>
-          <Text style={styles.botonTexto}>📊  Resumen Pastillas</Text>
+          <Text style={styles.botonTexto}>💊 Programación</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.boton} onPress={() => router.push("/cantidad")}>
-          <Text style={styles.botonTexto}>💊  Cantidad Pastillas</Text>
+          <Text style={styles.botonTexto}>📦 Cantidad Pastillas</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.boton} onPress={() => router.push("/resumen")}>
+          <Text style={styles.botonTexto}>📊 Resumen Pastillas</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={[styles.boton, styles.botonAgente]} onPress={() => router.push("/agente")}>
+          <Text style={styles.botonTextoAgente}>🤖 Agente Inteligente PastiYa</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -33,9 +37,9 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#F3F0FF" },
-  header: { backgroundColor: "#FFFFFF", alignItems: "center", paddingVertical: 10 },
-  logo: { width: 350, height: 140, alignSelf: "center" },
-  menu: { flex: 1, padding: 24, gap: 16, justifyContent: "center" },
+  header: { backgroundColor: "#F3F0FF", alignItems: "center", marginTop: -60, marginBottom: -40 },
+  logo: { width: "100%", height: undefined, aspectRatio: 1, alignSelf: "center" },
+  menu: { flex: 1, paddingHorizontal: 24, paddingBottom: 24, gap: 12, justifyContent: "center" },
   boton: {
     backgroundColor: "#FFFFFF",
     padding: 20,
@@ -45,4 +49,9 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   botonTexto: { fontSize: 18, color: "#6D28D9", fontWeight: "600" },
+  botonAgente: {
+    borderLeftColor: "#0EA5E9", // Azul celeste para agente IA
+    backgroundColor: "#F0F9FF",
+  },
+  botonTextoAgente: { fontSize: 18, color: "#0369A1", fontWeight: "700" },
 });
